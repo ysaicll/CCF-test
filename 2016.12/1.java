@@ -31,13 +31,22 @@
 评测用例规模与约定
 　　对于所有评测用例，1 ≤ n ≤ 1000，1 ≤ ai ≤ 1000。
 */
-//通过率80%
+//通过率100%
+
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 public int midnum(int []nums){
+	if(nums.length==1)          //一个数的本身是中间数（比它大的和比他小的都是0）
+		return nums[0];
+	if(nums.length==2){
+		if(nums[0]==nums[1])
+			return nums[0];
+		else
+			return -1;
+	}
 	Arrays.sort(nums);
 	if(nums.length<3)
 		return -1;
