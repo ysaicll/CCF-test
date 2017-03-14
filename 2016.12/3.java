@@ -73,3 +73,43 @@ false
 */
 //Í¨¹ýÂÊ80%
 
+package leettest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Map<String, String>roleMap=new HashMap<String, String>();
+        ArrayList<String>name=new ArrayList<String>();
+		Scanner scanner=new Scanner(System.in);
+        int n1=scanner.nextInt();
+        String privilege[]=new String[n1];
+        for(int i=0;i<n1;i++)
+        	privilege[i]=scanner.next();
+        int n2=scanner.nextInt();
+        String role[]=new String[n2];
+        for(int i=0;i<n2;i++)
+        	role[i]=scanner.nextLine();
+        int n3=scanner.nextInt();
+        String user[]=new String[n3];
+        for(int i=0;i<n3;i++){
+        	user[i]=scanner.nextLine();
+           name.add(user[i].split(" ")[0]);
+        }
+        int n4=scanner.nextInt();
+        String check[]=new String[n4];
+        for(int i=0;i<n4;i++)
+        	check[i]=scanner.nextLine();  
+        scanner.close();
+        
+        Main main=new Main();
+       // int nums[]={1,2,3,4,3,3,4,3,4};
+       //System.out.println(main.salary(n));   
+        
+    }
+}
