@@ -71,9 +71,11 @@ false
 　　* 前 20% 的评测用例只有一种角色
 　　* 前 50% 的评测用例权限都是不分等级的，查询也都不带等级
 */
-//通过率80%
+//未完成
 
 
+
+package org.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,7 +88,7 @@ public class Main {
 		// TODO Auto-generated method stub
         Map<String, String>roleMap=new HashMap<String, String>();
         Map<String, String>userMap=new HashMap<String, String>();
-        ArrayList<String>name=new ArrayList<String>();
+        Map<String, String>checkMap=new HashMap<String, String>();
 		Scanner scanner=new Scanner(System.in);
 		Scanner scanner1=new Scanner(System.in);
         int n1=scanner.nextInt();
@@ -99,23 +101,55 @@ public class Main {
         	role[i]=scanner1.nextLine();
         	roleMap.put(role[i].split(" ")[0], role[i].substring(role[i].indexOf(" ")+3));
         }
-//        int n3=scanner.nextInt();
-//        String user[]=new String[n3];
-//        for(int i=0;i<n3;i++){
-//        	user[i]=scanner.nextLine();
-//           name.add(user[i].split(" ")[0]);
-//        }
-//        int n4=scanner.nextInt();
-//        String check[]=new String[n4];
-//        for(int i=0;i<n4;i++)
-//        	check[i]=scanner.nextLine();  
+        int n3=scanner.nextInt();
+        String user[]=new String[n3];
+        for(int i=0;i<n3;i++){
+        	user[i]=scanner1.nextLine();
+        	userMap.put(user[i].split(" ")[0], user[i].substring(user[i].indexOf(" ")+3));
+        }
+        int n4=scanner.nextInt();
+        String check[]=new String[n4];
+        String check_temp[]=new String[n4];
+        for(int i=0;i<n4;i++){
+        	check[i]=scanner1.nextLine(); 
+        	check_temp[i]=check[i].split(" ")[0];
+        	checkMap.put(check[i].split(" ")[0], check[i].split(" ")[1]);
+        }
         scanner.close();
         scanner1.close();
-        System.out.println(Arrays.toString(privilege));
-        System.out.println(roleMap.toString());
-        Main main=new Main();
-       // int nums[]={1,2,3,4,3,3,4,3,4};
-       //System.out.println(main.salary(n));   
-        
+//        System.out.println(Arrays.toString(privilege));
+//        System.out.println(roleMap.toString());
+//        System.out.println(userMap.toString());
+//        System.out.println(checkMap.toString());
+        for(int i=0;i<checkMap.size();i++)
+        {
+        	if(!userMap.containsKey(check_temp[i]))
+        	{
+        		System.out.println(false);
+        		continue;
+        	}
+        	else {
+				String user2role[]=userMap.get(check_temp[i]).split(" ");
+				for(int j=0;j<user2role.length;j++)
+				{
+					String role2priva[]=roleMap.get(user2role[j]).split(" ");
+					if(roleMap.get(user2role[j]).contains(checkMap.get(check_temp[i])))
+					{
+						for(int k=0;k<role2priva.length;k++)
+						{
+							if(role2priva[i].contains(":"))
+							{
+								System.out.println("fuck you");
+							}
+						}
+						continue;
+					}
+					else{
+						System.out.println(false);
+						continue;
+					}
+				}
+			}      	
+        }     
     }
 }
